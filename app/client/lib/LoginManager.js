@@ -23,7 +23,6 @@ LoginManager = {
   * @return Email {String}
   */
  getPassword: function () {
-   console.l
    return $(LoginManager.containerClass + ' #login-password').val();
  },
 
