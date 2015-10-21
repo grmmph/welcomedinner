@@ -1,21 +1,6 @@
-
-// prefix elements
 $prefix-webkit:               true !global;
 $prefix-moz:                  true !global;
 $prefix-spec:                 true !global;
-
-/**
- * Exports Mixin
- * Better way of loadin moudles
- * @param name: Moudle name
- */
-@mixin exports($name) {
-	@if index($modules, $name) {
-	} @else {
-		$modules: append($modules, $name) !global;
-		@content;
-	}
-}
 
 /**
  * Opacity Mixin
@@ -23,10 +8,10 @@ $prefix-spec:                 true !global;
  * @param filter: Bolean [optional]
  */
 @mixin opacity($opacity:50, $filter: true) {
-		opacity: $opacity / 100;
-		@if $filter {
-			filter: alpha(opacity=$opacity);
-		}
+	opacity: $opacity / 100;
+	@if $filter {
+		filter: alpha(opacity=$opacity);
+	}
 }
 
 /**
@@ -46,7 +31,7 @@ $prefix-spec:                 true !global;
  * @param property
  * @param value
  * @param prefixes: webkit, moz, o, spec [optional]
- * 
+ *
  * @example	@include prefixer($property: border-radius, $value: $value);
  */
  @mixin prefixer($property, $value, $prefixes: webkit moz o spec) {
@@ -112,30 +97,8 @@ $prefix-spec:                 true !global;
 	@if length($value) >= 1 {
 		@include prefixer($property: transition, $value: $value, $prefixes: webkit moz spec);
 	} @else {
-	$value: all 0.25s ease-in 0s;
+	$value: all 0.15s ease-in 0s;
 		@include prefixer($property: transition, $value: $value, $prefixes: webkit moz spec);
-	}
-}
-
-@mixin animation ($value) {
-	@include prefixer($property: animation, $value: $value, $prefixes: webkit moz spec);
-}
-
-@mixin keyframes($animation-name) {
-	@keyframes $animation-name {
-		@content;
-	}
-	@-webkit-keyframes $animation-name {
-		@content;
-	}
-	@-moz-keyframes $animation-name {
-		@content;
-	}
-	@-ms-keyframes $animation-name {
-		@content;
-	}
-	@-o-keyframes $animation-name {
-		@content;
 	}
 }
 
@@ -160,16 +123,20 @@ $prefix-spec:                 true !global;
   	background: linear-gradient($direction, $color-stops);
 }
 
-@mixin select-arrow() {
-	position: absolute;
-	margin-top: -7px;
-	right: 10px;
-	top: 50%;
-	display: inline-block;
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	content: "\f107";
-}
+/**
+ * Keyframes mixin
+ */
+ @mixin keyframes($animationName) {
+     @-webkit-keyframes #{$animationName} {
+         @content;
+     }
+     @-moz-keyframes #{$animationName} {
+         @content;
+     }
+     @-o-keyframes #{$animationName} {
+         @content;
+     }
+     @keyframes #{$animationName} {
+         @content;
+     }
+ }

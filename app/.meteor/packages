@@ -22,3 +22,4 @@ iron:router
 tap:i18n
 accounts-password
 underscore
+fourseven:scss
