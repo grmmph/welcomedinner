@@ -7,6 +7,11 @@ Router.configure({
 Router.map(function() {
 	this.route('mainLandingView', {
 		path: '/',
-	    template: 'mainLandingView'
+	  template: 'mainLandingView'
+	});
+
+  this.route('login', {
+		path: '/login',
+	  template: 'loginView'
 	});
 });
