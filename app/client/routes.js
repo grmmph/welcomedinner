@@ -13,15 +13,4 @@ Router.map(function() {
 		path: '/',
 	  template: 'mainLandingView'
 	});
-
-  this.route('login', {
-		path: '/login',
-	  template: 'loginView'
-	});
-
-  this.route('profileEdit', {
-		path: '/profile/edit',
-	  template: 'profileEditView',
-    controller: ProfileEditController
-	});
 });
