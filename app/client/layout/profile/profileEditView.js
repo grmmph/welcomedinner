@@ -12,7 +12,6 @@ Template.profileEditView.helpers({
 Template.profileEditView.rendered = function () {
     var autocomplete;
     MapsManager.load(function () {
-      console.log('hahah')
       autocomplete = MapsManager.setAutocompleteElement('autocomplete');
     });
     return true;

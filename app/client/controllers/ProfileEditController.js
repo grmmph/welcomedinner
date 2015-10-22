@@ -3,6 +3,4 @@
  * ProfileEditController
  */
 
-ProfileEditController = BaseController.extend({
-
-});
+ProfileEditController = BaseController.extend({});
