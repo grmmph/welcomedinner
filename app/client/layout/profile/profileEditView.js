@@ -5,16 +5,15 @@
 var autocomplete;
 Template.profileEditView.helpers({
   autocomplete: function () {
-      console.log(Session.get('MapsManager.isLoaded'))
-      if (Session.get('MapsManager.isLoaded')) {
-          console.log(Session.get('MapsManager.isLoaded'))
-          autocomplete = MapsManager.setAutocompleteElement();
-          return true;
-      }
-      return false;
+      return true;
   }
 });
 
 Template.profileEditView.rendered = function () {
-
+    var autocomplete;
+    MapsManager.load(function () {
+      console.log('hahah')
+      autocomplete = MapsManager.setAutocompleteElement('autocomplete');
+    });
+    return true;
 };
