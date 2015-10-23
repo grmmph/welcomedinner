@@ -3,4 +3,8 @@
  * ProfileEditController
  */
 
-ProfileEditController = BaseController.extend({});
+ProfileEditController = BaseController.extend({
+  data: function () {
+    return Meteor.user();
+  }
+});

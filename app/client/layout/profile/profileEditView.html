@@ -2,41 +2,37 @@
   <div class="profile-edit-container container">
 
     <div class="profile-image">{{image}}</div>
-
     <div class="form-group">
       <label for="profile-firstname">First Name</label>
-      <input type="text" id="profile-firstname" class="form-control" placeholder="First Name" value="{{firstname}}">
+      <input type="text" id="profile-firstname" name="firstname" class="form-control" placeholder="First Name" value="{{profile.firstname}}">
     </div>
 
     <div class="form-group">
       <label for="profile-lastname">Last Name</label>
-      <input type="text" id="profile-lastname" class="form-control" placeholder="Last Name" value="{{lastname}}">
+      <input type="text" id="profile-lastname" name="lastname" class="form-control" placeholder="Last Name" value="{{profile.lastname}}">
     </div>
 
     <div class="form-group">
       <label for="profile-lastname">Free spots at the table</label>
-      <input type="number" id="profile-spots" class="form-control" placeholder="Free spots at the table" value="{{spots}}">
+      <input type="number" id="profile-spots" name="spots" class="form-control" placeholder="Free spots at the table" value="{{profile.spots}}">
     </div>
 
     <div class="form-group">
       <label for="profile-story">About the dinner</label>
-      <input type="number" id="profile-story" class="form-control" placeholder="About the dinner" value="{{story}}">
+      <input type="number" id="profile-story" name="story" class="form-control" placeholder="About the dinner" value="{{profile.story}}">
     </div>
 
     <div class="form-group">
-      <label for="profile-story">Phone Number</label>
+      <label for="profile-phone">Phone Number</label>
       <p>This information will be exposed only after match is confirmed</p>
-      <input type="number" id="profile-contact" class="form-control" placeholder="Phone Number" value="{{contact.phone}}">
+      <input type="number" id="profile-phone" name="contact.phone" class="form-control" placeholder="Phone Number" value="{{profile.contact.phone}}">
     </div>
 
     <div class="form-group">
-      <label for="profile-story">Address</label>
+      <label for="profile-address">Address</label>
       <p>This information will be exposed only after match is confirmed</p>
-      <input type="number" id="profile-address" class="form-control" placeholder="Address" value="{{contact.address}}">
+      <input type="text" id="profile-address" name="contact.address" class="form-control" placeholder="Address" value="{{profile.contact.address}}">
     </div>
-    {{#if autocomplete}}
-      <input id="autocomplete" placeholder="Enter your address" type="text">\
-    {{/if}}
 
     {{> googleMap name="exampleMap" options=exampleMapOptions}}
 
