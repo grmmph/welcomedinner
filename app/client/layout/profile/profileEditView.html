@@ -1,40 +1,74 @@
 <template name="profileEditView">
-  <div class="profile-edit-container container">
-
+  <div class="profile-edit-container container max-width-medium">
+    <h1 class="text-center">About me</h1>
     <div class="profile-image">{{image}}</div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="profile-firstname">First Name</label>
+          <input type="text" id="profile-firstname" name="firstname" class="form-control" placeholder="First Name" value="{{profile.firstname}}">
+        </div>
+      </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="profile-lastname">Last Name</label>
+            <input type="text" id="profile-lastname" name="lastname" class="form-control" placeholder="Last Name" value="{{profile.lastname}}">
+          </div>
+        </div>
+      </div>
     <div class="form-group">
-      <label for="profile-firstname">First Name</label>
-      <input type="text" id="profile-firstname" name="firstname" class="form-control" placeholder="First Name" value="{{profile.firstname}}">
+      <label for="profile-lastname">I want to
+        <a data-user-type="host" class="user-type-btn {{#if equals profile.type 'host'}} active {{/if}}">Invite guest for a dinner</a>
+        <a data-user-type="guest" class="user-type-btn {{#if equals profile.type 'guest'}} active {{/if}}">Get invited for a dinner</a>
+      </label>
+
     </div>
 
+    {{#if equals profile.type "host"}}
     <div class="form-group">
-      <label for="profile-lastname">Last Name</label>
-      <input type="text" id="profile-lastname" name="lastname" class="form-control" placeholder="Last Name" value="{{profile.lastname}}">
-    </div>
-
-    <div class="form-group">
-      <label for="profile-lastname">Free spots at the table</label>
+      <label for="profile-spots">Free spots at the table</label>
       <input type="number" id="profile-spots" name="spots" class="form-control" placeholder="Free spots at the table" value="{{profile.spots}}">
     </div>
 
     <div class="form-group">
       <label for="profile-story">About the dinner</label>
-      <input type="number" id="profile-story" name="story" class="form-control" placeholder="About the dinner" value="{{profile.story}}">
+      <textarea id="profile-story" name="story" class="form-control" placeholder="About the dinner" value="{{profile.story}}"></textarea>
+    </div>
+    {{/if}}
+
+    {{#if equals profile.type "guest"}}
+    <div class="form-group">
+      <label for="profile-story">About myself</label>
+      <textarea id="profile-story" name="story" class="form-control" placeholder="About the dinner" value="{{profile.story}}"></textarea>
     </div>
 
     <div class="form-group">
+      <label for="profile-guest-count">How many guests?</label>
+      <input type="number" id="profile-guest-count" name="guestCount" class="form-control" placeholder="Free spots at the table" value="{{profile.spots}}">
+    </div>
+
+    <div class="form-group">
+      <label for="profile-story">Special Diet? (e.g. Halal, Kosher, Vegetarian)</label>
+      <input type="text" id="profile-story" name="story" class="form-control" placeholder="About the dinner" value="{{profile.story}}">
+    </div>
+    {{/if}}
+
+    <h3>Contact Information<br>
+    <small>This information will be exposed only after match is confirmed</small>
+    </h3>
+
+    <div class="form-group">
       <label for="profile-phone">Phone Number</label>
-      <p>This information will be exposed only after match is confirmed</p>
       <input type="number" id="profile-phone" name="contact.phone" class="form-control" placeholder="Phone Number" value="{{profile.contact.phone}}">
     </div>
 
     <div class="form-group">
       <label for="profile-address">Address</label>
-      <p>This information will be exposed only after match is confirmed</p>
       <input type="text" id="profile-address" name="contact.address" class="form-control" placeholder="Address" value="{{profile.contact.address}}">
     </div>
 
-    {{> googleMap name="exampleMap" options=exampleMapOptions}}
-
+    <div class="form-group">
+      <a href="/"><button class="btn btn-primary btn-block save-btn">Save and continue</button></a>
+    </div>
   </div>
 </template>

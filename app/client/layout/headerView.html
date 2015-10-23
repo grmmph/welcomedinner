@@ -19,7 +19,13 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Search</a></li>
-              <li class="active"><a href="/login"><button class="btn btn-login">Login</button></a></li>
+              <li>
+                {{#if user}}
+                <a href="/profile/edit">{{user.profile.firstname}}</a>
+                {{else}}
+                <a href="/login"><button class="btn btn-login">Login</button></a>
+                {{/if}}
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

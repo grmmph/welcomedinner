@@ -19,8 +19,15 @@ Template.profileEditView.rendered = function () {
 };
 
 Template.profileEditView.events({
-  'keyup input': function (evt) {
-    console.log($(evt.target).val())
-    UsersManager.setToProfile($(evt.target).attr('name'), $(evt.target).val());
+  'click .save-btn': function (evt) {
+    evt.preventDefault()
+    _.each($('input, textarea'), function (input) {
+      UsersManager.setToProfile($(input).attr('name'), $(input).val());
+      Router.go('/')
+    })
+  },
+
+  'click .user-type-btn': function (evt) {
+      UsersManager.setToProfile('type', $(evt.target).attr('data-user-type'));
   }
 });

@@ -1,4 +1,5 @@
 @import "bootstrap/variables";
+@import "mixin.scss";
 html {
   height: 100%;
 }
@@ -6,13 +7,23 @@ body {
   font-family: "proxima-nova", sans-serif;
   margin: 0;
   height: 100%;
-
 }
 .wrapper {
   min-height: 100%;
   position: relative;
 }
+.max-width-small {
+  max-width: 480px;
+}
+.max-width-medium {
+  max-width: 670px;
+}
+
 #header {
+  text-transform: capitalize;
+  &:not(.absolute-header) {
+    margin-bottom: 20px;
+  }
   &.absolute-header {
     position: absolute;
     z-index: 1;
@@ -95,4 +106,21 @@ body {
 
 .login-container {
     width: 510px;
+}
+
+.profile-edit-container {
+  .user-type-btn {
+    margin-right: 10px;
+    color: $red;
+    @include opacity(60);
+    cursor: pointer;
+    border-bottom: 1px dashed $red;
+    &:hover {
+      @include opacity(100);
+    }
+    &.active {
+
+      @include opacity(100);
+    }
+  }
 }
