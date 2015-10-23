@@ -1,21 +1,22 @@
 <template name="mainLandingView">
   <div class="landing-page">
+    <div class="hero">
+      <video autoplay="true" loop="true" muted="" id="video">
+          <source src="/video/hero.mp4" type="video/mp4">
+          <source src="/video/hero.webm" type="video/mp4">
+      </video>
 
-    <video autoplay="true" loop="true" muted="" id="video">
-        <source src="/video/hero.mp4" type="video/mp4">
-        <source src="/video/hero.webm" type="video/mp4">
-    </video>
-
-    <div class="content-container">
-      <h1>Welcome Dinner</h1>
-      <div class="subtitle">
-        Break the fear. Invite foreign guests for dinner.
-      </div>
-      <div class="buttons-container">
-        <button class="btn btn-primary">Sign up as a Host</button>
-        <button class="btn btn-primary">Sign up as a Guest</button>
+      <div class="content-container">
+        <h1>Welcome Dinner</h1>
+        <div class="subtitle">
+          Break the fear. Invite foreign guests for dinner.
+        </div>
+        <div class="buttons-container">
+          <button class="btn btn-primary">Sign up as a Host</button>
+          <button class="btn btn-primary">Sign up as a Guest</button>
+        </div>
       </div>
     </div>
-
+    {{ > searchFormView}}
   </div>
 </template>
