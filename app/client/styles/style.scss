@@ -12,9 +12,29 @@ body {
   min-height: 100%;
   position: relative;
 }
-#header.absolute-header {
-  position: absolute;
-  z-index: 1;
+#header {
+  &.absolute-header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    a {
+      color: $white !important;
+    }
+    .btn-login {
+      border: 1px solid $white !important;
+      background: none;
+      color: $white !important;
+    }
+  }
+  .container {
+    height: 50px;
+  }
+  .btn-login {
+    border: 1px solid $red;
+    background: none;
+    color: $red;
+    margin-top: -6px;
+  }
 }
 #content {
   padding-bottom: 150px;
@@ -33,14 +53,12 @@ body {
   }
 }
 
-
 .hero {
   position: relative;
   width: 100%;
   height: 500px;
   overflow: hidden;
   background: $green;
-  z-index: -1;
 
   h1 {
     font-size: 70px;
@@ -73,4 +91,8 @@ body {
     top: 50%;
     margin-top: -60px;
   }
+}
+
+.login-container {
+    width: 510px;
 }
