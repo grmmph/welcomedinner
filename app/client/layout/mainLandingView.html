@@ -12,11 +12,18 @@
           Break the fear. Invite foreign guests for dinner.
         </div>
         <div class="buttons-container">
+        {{#if user}}
+          {{#if equals profile.type "host"}}
+          <button class="btn btn-primary">Look for guests in your area</button>
+          {{else}}
+          <button class="btn btn-primary">Look for hosts in your area</button>
+          {{/if}}
+        {{else}}
           <button class="btn btn-primary">Sign up as a Host</button>
           <button class="btn btn-primary">Sign up as a Guest</button>
+        {{/if}}
         </div>
       </div>
     </div>
-    {{ > searchFormView}}
   </div>
 </template>
