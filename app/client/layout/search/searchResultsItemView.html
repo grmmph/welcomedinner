@@ -14,13 +14,13 @@
         </div>
       </div>
       <div class="col-xs-3">
-          <button class="btn btn-primary btn-chat">
+          <a href="/conversation/{{_id}}"><button class="btn btn-primary btn-chat">
             {{#if equals profile.type "guest"}}
               Invite {{profile.firstname}} for dinner
               {{else}}
               Chat with {{profile.firstname}}
             {{/if}}
-          </button>
+          </button></a>
       </div>
     </div>
   </div>

@@ -33,10 +33,16 @@ Router.map(function() {
     controller: ProfileEditController
 	});
 
-  this.route('messages', {
-		path: '/messages',
+  this.route('conversationsBoard', {
+		path: '/conversations',
 	  template: 'messagesView',
-    controller: MessagesController
+    controller: ConversationsBoardController
+	});
+
+  this.route('conversation', {
+		path: '/conversations/:userId',
+	  template: 'messagesView',
+    controller: ConversationController
 	});
 
 });
