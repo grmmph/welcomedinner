@@ -59,7 +59,7 @@ LoginManager = {
        LoginManager.handleError(err)
        return;
      }
-     Router.go('/profile');
+     Router.go('/profile/edit');
    });
  },
 
@@ -81,7 +81,7 @@ LoginManager = {
        LoginManager.handleError(err);
        return;
      }
-     Router.go('/');
+     Router.go('/profile/edit');
    });
  },
 

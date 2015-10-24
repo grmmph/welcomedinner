@@ -1,6 +1,6 @@
 /**
  * @class MapsManager
- * @useage MapsManager.load(callback)
+ * @usage MapsManager.load(callback)
  */
 
 MapsManager = {

@@ -19,6 +19,14 @@ Router.map(function() {
 	  template: 'loginView'
 	});
 
+  this.route('logout', {
+		path: '/logout',
+    action: function () {
+      Meteor.logout()
+      Router.go('/');
+    }
+	});
+
   this.route('profileEdit', {
 		path: '/profile/edit',
 	  template: 'profileEditView',

@@ -13,9 +13,10 @@
         </div>
         <div class="buttons-container">
         {{#if user}}
-          {{#if equals profile.type "host"}}
+          {{#if equals user.profile.type "host"}}
           <button class="btn btn-primary">Look for guests in your area</button>
-          {{else}}
+          {{/if}}
+          {{#if equals user.profile.type "guest"}}
           <button class="btn btn-primary">Look for hosts in your area</button>
           {{/if}}
         {{else}}
@@ -25,5 +26,6 @@
         </div>
       </div>
     </div>
+    {{ > searchResultsView}}
   </div>
 </template>

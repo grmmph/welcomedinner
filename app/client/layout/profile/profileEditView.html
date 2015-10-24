@@ -20,6 +20,7 @@
       <label for="profile-lastname">I want to
         <a data-user-type="host" class="user-type-btn {{#if equals profile.type 'host'}} active {{/if}}">Invite guest for a dinner</a>
         <a data-user-type="guest" class="user-type-btn {{#if equals profile.type 'guest'}} active {{/if}}">Get invited for a dinner</a>
+        <a data-user-type="none" class="user-type-btn {{#if equals profile.type 'none'}} active {{/if}}">Neither, I'm just passing by</a>
       </label>
 
     </div>
@@ -53,6 +54,7 @@
     </div>
     {{/if}}
 
+    {{#unless equals profile.type "none"}}
     <h3>Contact Information<br>
     <small>This information will be exposed only after match is confirmed</small>
     </h3>
@@ -70,5 +72,6 @@
     <div class="form-group">
       <a href="/"><button class="btn btn-primary btn-block save-btn">Save and continue</button></a>
     </div>
+    {{/unless}}
   </div>
 </template>

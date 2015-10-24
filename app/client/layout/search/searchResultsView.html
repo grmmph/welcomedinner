@@ -1,0 +1,15 @@
+<template name="searchResultsView">
+  <div class="search-results-container container">
+    <h1 class="text-center">
+      {{#if isGuest}}
+      Hosts guests in your area
+      {{/if}}
+      {{#if isHost}}
+      Invite Guests in your area
+      {{/if}}
+    </h1>
+    {{#each results}}
+      {{profile.firstname}}
+    {{/each}}
+  </div>
+</template>
