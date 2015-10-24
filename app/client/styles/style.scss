@@ -7,6 +7,7 @@ body {
   font-family: "proxima-nova", sans-serif;
   margin: 0;
   height: 100%;
+  background: rgba($red, 0.05);
 }
 .vertical-align {
     display: flex;
@@ -26,6 +27,7 @@ body {
 #header {
   text-transform: capitalize;
   &:not(.absolute-header) {
+    background: $white;
     border-bottom: 1px solid lighten($gray-light, 20%);
   }
   &.absolute-header {
@@ -53,7 +55,6 @@ body {
 }
 #content {
   padding-bottom: 170px;
-  background: rgba($red, 0.05);
 }
 
 #footer {

@@ -18,11 +18,19 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/messages">Messages</a></li>
+              {{#if user}}
+              <li><a href="/conversations">Messages</a></li>
+              {{/if}}
               <li><a href="#">Search</a></li>
               <li>
                 {{#if user}}
-                <a href="/profile/edit">{{user.profile.firstname}}</a>
+                <a href="/profile/edit">
+                  {{#if user.profile.firstname}}
+                  {{user.profile.firstname}}
+                  {{else}}
+                  Me
+                  {{/if}}
+                </a>
                 {{else}}
                 <a href="/login"><button class="btn btn-login">Login</button></a>
                 {{/if}}
