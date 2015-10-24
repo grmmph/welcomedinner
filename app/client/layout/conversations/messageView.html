@@ -1,0 +1,25 @@
+<template name="messageView">
+  <div class="message-item {{messageClass}}">
+    <div class="row">
+      {{#unless isYouSender}}
+      <div class="col-xs-2">
+
+      </div>
+      {{/unless}}
+      <div class="col-xs-10">
+        <div class="message-details">
+          {{senderPrettyName}} said
+        </div>
+        <div class="message-content">
+          {{content}}
+        </div>
+      </div>
+      {{#if isYouSender}}
+      <div class="col-xs-2">
+
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+</template>

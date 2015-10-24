@@ -3,7 +3,7 @@
     <h3>Conversation with {{partner.profile.firstname}}</h3>
 
     {{#each messages}}
-      {{content}}
+      {{> messageView}}
     {{/each}}
     <div class="message-input-container">
       <form class="new-message-form">
