@@ -1,0 +1,27 @@
+<template name="searchResultsItemView">
+  <div class="results-item max-width-medium container">
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="img">
+
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <h4 class="person-name">{{profile.firstname}} {{profile.lastname}}</h4>
+        <div class="person-details">
+          <div>{{profile.guestCount}} Guest, Diet: {{profile.diet}}</div>
+          <div class="person-story">{{profile.story}}</div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+          <button class="btn btn-primary btn-chat">
+            {{#if equals profile.type "guest"}}
+              Invite {{profile.firstname}} for dinner
+              {{else}}
+              Chat with {{profile.firstname}}
+            {{/if}}
+          </button>
+      </div>
+    </div>
+  </div>
+</template>

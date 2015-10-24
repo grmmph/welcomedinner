@@ -125,3 +125,23 @@ body {
     }
   }
 }
+
+.results-item {
+  // PLACEHOLDER
+  .img {
+    background: gray;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+  }
+  .person-name {
+    margin-bottom: 5px;
+  }
+  .person-details {
+    color: $gray-light;
+    font-size: 0.8em;
+  }
+  .person-story {
+    font-style: italic;
+  }
+}

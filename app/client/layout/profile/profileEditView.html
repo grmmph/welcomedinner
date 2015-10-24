@@ -45,12 +45,12 @@
 
     <div class="form-group">
       <label for="profile-guest-count">How many guests?</label>
-      <input type="number" id="profile-guest-count" name="guestCount" class="form-control" placeholder="Free spots at the table" value="{{profile.spots}}">
+      <input type="number" id="profile-guest-count" name="guestCount" class="form-control" placeholder="How many guest do you bring including yourself" value="{{profile.guestCount}}">
     </div>
 
     <div class="form-group">
-      <label for="profile-story">Special Diet? (e.g. Halal, Kosher, Vegetarian)</label>
-      <input type="text" id="profile-story" name="story" class="form-control" placeholder="About the dinner" value="{{profile.story}}">
+      <label for="profile-diet">Special Diet? (e.g. Halal, Kosher, Vegetarian)</label>
+      <input type="text" id="profile-diet" name="diet" class="form-control" placeholder="About the dinner" value="{{profile.story}}">
     </div>
     {{/if}}
 
