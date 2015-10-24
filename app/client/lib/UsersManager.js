@@ -40,7 +40,17 @@ UsersManager = {
       return Meteor.user().profile.type;
     },
 
+    /**
+    * @return users {Array}
+    */
     getUsersByType: function (type) {
       return Meteor.users.find({'profile.type': type}).fetch();
+    },
+
+    /**
+    * @return user {Object}
+    */
+    getUserById: function (id) {
+      return Meteor.users.findOne(id);
     }
 }

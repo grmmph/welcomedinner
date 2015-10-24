@@ -35,13 +35,13 @@ Router.map(function() {
 
   this.route('conversationsBoard', {
 		path: '/conversations',
-	  template: 'messagesView',
+	  template: 'conversationsBoardView',
     controller: ConversationsBoardController
 	});
 
   this.route('conversation', {
 		path: '/conversations/:userId',
-	  template: 'messagesView',
+	  template: 'conversationView',
     controller: ConversationController
 	});
 
