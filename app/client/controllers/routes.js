@@ -32,4 +32,11 @@ Router.map(function() {
 	  template: 'profileEditView',
     controller: ProfileEditController
 	});
+
+  this.route('messages', {
+		path: '/messages',
+	  template: 'messagesView',
+    controller: MessagesController
+	});
+
 });
