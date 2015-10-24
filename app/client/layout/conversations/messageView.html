@@ -1,11 +1,11 @@
 <template name="messageView">
   <div class="message-item {{messageClass}}">
     <div class="row">
-      {{#unless isYouSender}}
+      {{#if isYouSender}}
       <div class="col-xs-2">
 
       </div>
-      {{/unless}}
+      {{/if}}
       <div class="col-xs-10">
         <div class="message-details">
           {{senderPrettyName}} said
@@ -14,11 +14,11 @@
           {{content}}
         </div>
       </div>
-      {{#if isYouSender}}
+      {{#unless isYouSender}}
       <div class="col-xs-2">
 
       </div>
-      {{/if}}
+      {{/unless}}
     </div>
 
   </div>

@@ -10,6 +10,10 @@
     * @return messageId {String}
     */
    sendMessage: function (receiverId, content) {
+     if (!_.isString(receiverId) || !_.isString(content)) {
+       return;
+     }
+
      return Messages.insert({
        createdAt: new Date(),
        sender: Meteor.userId(),
