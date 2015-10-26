@@ -30,11 +30,13 @@
      return _.map(_.uniq(Messages.find().fetch(), function (message) {
        return (message.receiver && message.reciever !== Meteor.userId()) ||  (message.sender && message.sender !== Meteor.userId());
      }), function (message) {
-       var conversation = {}
-       if (Meteor.userId() === conversation.reciever) {
+       var conversation = {};
+       if (Meteor.userId() === message.reciever) {
          conversation.partner = UsersManager.getUserById(message.sender)
+         conversation.lastMessage = Messages.findOne({reciever: message.reciever}, {sort: {createdAt: -1}});
        } else {
          conversation.partner = UsersManager.getUserById(message.receiver)
+         conversation.lastMessage = Messages.findOne({sender: message.sender}, {sort: {createdAt: -1}});
        }
        return conversation;
      });
