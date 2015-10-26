@@ -20,5 +20,23 @@
        receiver: receiverId,
        content: content
      });
+   },
+
+   /**
+    * Get user conversations
+    * @return conversations {Array}
+    */
+   getUsersConversations: function () {
+     return _.map(_.uniq(Messages.find().fetch(), function (message) {
+       return (message.receiver && message.reciever !== Meteor.userId()) ||  (message.sender && message.sender !== Meteor.userId());
+     }), function (message) {
+       var conversation = {}
+       if (Meteor.userId() === conversation.reciever) {
+         conversation.partner = UsersManager.getUserById(message.sender)
+       } else {
+         conversation.partner = UsersManager.getUserById(message.receiver)
+       }
+       return conversation;
+     });
    }
  };
