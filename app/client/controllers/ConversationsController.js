@@ -13,7 +13,7 @@ ConversationController = ConversationsBoardController.extend({
   data: function () {
     return {
       partner: UsersManager.getUserById(this.params.partnerId),
-      messages: Messages.find({$or: [{receiver: this.params.partnerId}, {sender: this.params.partnerId}] }).fetch(),
+      messages: Messages.find({$or: [{receiver: this.params.partnerId}, {sender: this.params.partnerId}] }, {sort: {createdAt: -1}}).fetch(),
     }
   }
 });

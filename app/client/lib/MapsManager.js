@@ -49,8 +49,6 @@ MapsManager = {
      * @return autocomplete {Object} Google places autocomplete object
      */
     setAutocompleteElement: function (elId) {
-        return new google.maps.places.Autocomplete(
-        (document.getElementById(elId)),{types: ['geocode'] }
-      );
+        return new google.maps.places.Autocomplete(document.getElementById(elId), {types: ['(cities)'] });
     },
 }

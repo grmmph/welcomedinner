@@ -2,18 +2,10 @@
  * @type view
  * profileEditView
  */
-var autocomplete;
-Template.profileEditView.helpers({
-  autocomplete: function () {
-    console.log(this)
-    return true;
-  }
-});
 
 Template.profileEditView.rendered = function () {
-    var autocomplete;
     MapsManager.load(function () {
-      autocomplete = MapsManager.setAutocompleteElement('profile-address');
+      var autocomplete = MapsManager.setAutocompleteElement('profile-address');
     });
     return true;
 };
@@ -23,7 +15,7 @@ Template.profileEditView.events({
     evt.preventDefault()
     _.each($('input, textarea'), function (input) {
       UsersManager.setToProfile($(input).attr('name'), $(input).val());
-      Router.go('/')
+      Router.go('/');
     })
   },
 

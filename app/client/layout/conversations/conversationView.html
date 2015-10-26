@@ -1,23 +1,32 @@
 <template name="conversationView">
-  <div class="container max-width-small">
-    <h3>Conversation with {{partner.profile.firstname}}</h3>
-
-    {{#each messages}}
-      {{> messageView}}
-    {{/each}}
-    <div class="message-input-container">
-      <form class="new-message-form">
-        <div class="form-group">
-          <div class="row">
-            <div class="col-xs-9">
-              <textarea name="message" class="form-control" value="" placeholder="Type a message"></textarea>
-            </div>
-            <div class="col-xs-3">
-              <button class="btn btn-primary btn-send btn-block" disabled="{{isDisabled}}">Send</button>
-            </div>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>{{partner.profile.firstname}} {{partner.profile.lastname}}</h3>
+        <div class="profile-location">
+          
         </div>
-      </form>
+      </div>
+      <div class="col-sm-8">
+        <div class="message-input-container">
+          <form class="new-message-form">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-9">
+                  <textarea name="message" class="form-control" value="" placeholder="Type a message"></textarea>
+                </div>
+                <div class="col-xs-3">
+                  <button class="btn btn-primary btn-send btn-block" disabled="{{isDisabled}}">Send</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        {{#each messages}}
+          {{> messageView}}
+        {{/each}}
+
+      </div>
     </div>
   </div>
 </template>
