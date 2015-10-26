@@ -169,5 +169,29 @@ body {
     color: $gray-light;
     font-size: 0.7em;
   }
+}
 
+.conversations-board-container {
+  .conversations-board-items {
+    background: $white;
+    padding: 5px;
+    border: 1px solid $gray-light;
+    @include radius(2px);
+    .conversation-item {
+      cursor: pointer;
+    }
+    .last-message {
+        font-size: 0.8em;
+        color: $gray-light;
+    }
+    .time {
+      font-size: 0.7em;
+      text-align: right;
+      color: $gray-light;
+    }
+    .partner-name {
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+  }
 }

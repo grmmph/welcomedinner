@@ -12,8 +12,8 @@ ConversationsBoardController = BaseController.extend({
 ConversationController = ConversationsBoardController.extend({
   data: function () {
     return {
-      partner: UsersManager.getUserById(this.params.userId),
-      messages: Messages.find({$or: [{receiver: this.params.userId}, {sender: this.params.userId}] }).fetch()
+      partner: UsersManager.getUserById(this.params.partnerId),
+      messages: Messages.find({$or: [{receiver: this.params.partnerId}, {sender: this.params.partnerId}] }).fetch(),
     }
   }
 });

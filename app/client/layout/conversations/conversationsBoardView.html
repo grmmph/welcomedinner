@@ -1,22 +1,10 @@
 <template name="conversationsBoardView">
-  <div class="container conversations-board-container">
+  <div class="container conversations-board-container max-width-small">
     <h1 class="text-center">Your messages</h1>
-    {{#each conversations}}
-      <div class="conversation-item">
-        <div class="row">
-          <div class="col-xs-3">
-
-          </div>
-          <div class="col-xs-9">
-            <div class="partner-name">
-                {{partner.profile.firstname}}
-            </div>
-            <div class="last-message">
-                {{lastMessage.content}}
-            </div>
-          </div>
-        </div>
-      </div>
-    {{/each}}
+      <div class="conversations-board-items">
+      {{#each conversations}}
+        {{> conversationsBoardItemView}}
+      {{/each}}
+    </div>
   </div>
 </template>
