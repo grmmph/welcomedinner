@@ -41,10 +41,25 @@ UsersManager = {
     },
 
     /**
+    * @param type {String}
+    * @param options {Object}
     * @return users {Array}
     */
-    getUsersByType: function (type) {
-      return Meteor.users.find({'profile.type': type}).fetch();
+    getUsersByType: function (type, options) {
+      var options = options || {
+        distance: 50000
+      };
+      return Meteor.users.find({
+        'profile.type': type,
+        'profile.location':
+          { $near :
+             {
+               $geometry: { type: "Point",  coordinates: Meteor.user().profile.location.coordinates},
+               $minDistance: 0,
+               $maxDistance: options.distance
+             }
+          }
+        }).fetch();
     },
 
     /**

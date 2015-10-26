@@ -9,3 +9,6 @@ Meteor.publish("usersList", function () {
     }
   });
 });
+
+Meteor.users._ensureIndex({ location : "2d" });
+Meteor.users._ensureIndex({ location : "2dsphere" });

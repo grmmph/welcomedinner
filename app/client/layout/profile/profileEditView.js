@@ -3,9 +3,10 @@
  * profileEditView
  */
 
+var autocomplete;
 Template.profileEditView.rendered = function () {
     MapsManager.load(function () {
-      var autocomplete = MapsManager.setAutocompleteElement('profile-address');
+      autocomplete = MapsManager.setAutocompleteElement('profile-location');
     });
     return true;
 };
@@ -15,8 +16,20 @@ Template.profileEditView.events({
     evt.preventDefault()
     _.each($('input, textarea'), function (input) {
       UsersManager.setToProfile($(input).attr('name'), $(input).val());
-      Router.go('/');
-    })
+    });
+    console.log(autocomplete)
+    if (autocomplete.getPlace()) {
+      var location = {
+          // placeObj: autocomplete.getPlace(),
+          type: "Point",
+          coordinates: [
+            autocomplete.getPlace().geometry.location.lat(),
+            autocomplete.getPlace().geometry.location.lng()
+          ]
+      }
+      UsersManager.setToProfile('location', location);
+    }
+    Router.go('/');
   },
 
   'click .user-type-btn': function (evt) {
