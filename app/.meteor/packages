@@ -25,3 +25,5 @@ fourseven:scss
 dburles:google-maps
 momentjs:moment
 outatime:geolib
+tomi:upload-server
+tomi:upload-jquery

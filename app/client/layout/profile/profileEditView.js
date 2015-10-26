@@ -2,7 +2,13 @@
  * @type view
  * profileEditView
  */
-
+Template.profileEditView.helpers({
+  formData: function () {
+    return {
+      uid: Meteor.userId()
+    }
+  }
+});
 var autocomplete;
 Template.profileEditView.rendered = function () {
     MapsManager.load(function () {
@@ -20,7 +26,7 @@ Template.profileEditView.events({
     console.log(autocomplete)
     if (autocomplete.getPlace()) {
       var location = {
-          // placeObj: autocomplete.getPlace(),
+          placeObj: autocomplete.getPlace(),
           type: "Point",
           coordinates: [
             autocomplete.getPlace().geometry.location.lat(),

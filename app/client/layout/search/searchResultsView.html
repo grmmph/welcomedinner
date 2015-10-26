@@ -2,12 +2,22 @@
   <div class="search-results-container container">
     <h1 class="text-center">
       {{#if isGuest}}
-      Hosts guests in your area
+      Hosts around you
       {{/if}}
       {{#if isHost}}
-      Invite Guests in your area
+      Invite Guests around you
       {{/if}}
     </h1>
+    <div class="user-location text-center">
+      {{#if equals results.length 0}}
+      Sorry, couldn't find anyone around {{user.profile.locationName}}.<br>
+      <small class="location-change"><a href="/profile/edit">Not your location?</a></small>
+
+      {{else}}
+      {{user.profile.locationName}}
+      <small class="location-change"><a href="/profile/edit">Not your location?</a></small>
+      {{/if}}
+    </div>
     {{#each results}}
       {{> searchResultsItemView}}
     {{/each}}
