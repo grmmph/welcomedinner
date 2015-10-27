@@ -1,7 +1,8 @@
 <template name="conversationView">
-  <div class="container">
+  <div class="container conversation-container">
     <div class="row">
       <div class="col-sm-4">
+        <div class="profile-image" style="{{#if partner.profile.image}}background-image:url('/uploads/{{partner.profile.image}}'){{/if}}"></div>
         <h3>{{partner.profile.firstname}} {{partner.profile.lastname}}</h3>
         <div class="profile-location">
           {{partner.profile.locationName}}

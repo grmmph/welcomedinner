@@ -1,8 +1,8 @@
 <template name="conversationsBoardItemView">
   <div class="conversation-item">
     <div class="row">
-      <div class="col-xs-3">
-        <div class="profile-image" style="background-image:url('/uploads/{{profile.image}}')"></div>
+      <div class="col-xs-2">
+        <div class="profile-image" style="{{#if partner.profile.image}}background-image:url('/uploads/{{partner.profile.image}}'){{/if}}"></div>
       </div>
       <div class="col-xs-6">
         <div class="partner-name">
@@ -12,8 +12,8 @@
             {{lastMessage.content}}
         </div>
       </div>
-      <div class="col-xs-3">
-        <div class="time">
+      <div class="col-xs-4">
+        <div class="time text-right">
           {{calendarDate lastMessage.createdAt}}
         </div>
       </div>

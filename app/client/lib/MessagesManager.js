@@ -50,7 +50,6 @@
     */
    getUsersConversations: function () {
      return _.map(this.getOtherPartiesFromConversations(), function (partyId) {
-       console.log(UsersManager.getUserById(partyId))
        return {
          partner: UsersManager.getUserById(partyId),
          lastMessage: MessagesManager.getLastMessage(partyId)
