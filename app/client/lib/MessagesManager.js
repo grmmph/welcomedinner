@@ -24,26 +24,6 @@
      });
    },
 
-   insertConversation: function (sender, receiver) {
-    if (Conversations.find({parties: { $all: [sender,receiver] }}).fetch().length) {
-      return;
-    }
-    Conversations.insert({
-      parties: [sender, receiver],
-      createdAt: new Date()
-    });
-   },
-
-   getLastMessage: function (partyId) {
-     return Messages.findOne({$or: [{ sender: partyId }, { receiver: partyId }] }, {sort: {createdAt: -1}});
-   },
-
-   getOtherPartiesFromConversations: function () {
-     return _.without(_.flatten(_.map(Conversations.find().fetch(), function (conv) {
-       return conv.parties;
-     })), Meteor.userId());
-   },
-
    /**
     * Get user conversations
     * @return conversations {Array}
@@ -55,5 +35,44 @@
          lastMessage: MessagesManager.getLastMessage(partyId)
        };
      });
+   },
+
+   // PRIVATE FUNCTIONS
+   // ------------------
+   /**
+    * @private
+    * @param sender {String} Sender id
+    * @param receiver {String} Receiver id
+    * @param ConversationID {String}
+    */
+   insertConversation: function (sender, receiver) {
+    if (Conversations.find({parties: { $all: [sender,receiver] }}).fetch().length) {
+      return;
+    }
+    return Conversations.insert({
+      parties: [sender, receiver],
+      createdAt: new Date()
+    });
+   },
+
+   /**
+    * @private
+    * @param partyId {String} user Id of other party
+    * @return message {Object} Last message between user and the party
+    */
+   getLastMessage: function (partyId) {
+     return Messages.findOne({$or: [{ sender: partyId }, { receiver: partyId }] }, {sort: {createdAt: -1}});
+   },
+
+   /**
+    * @private
+    * Grabbing the parties ids from all conversations
+    * @return otherParties {Array} Array of ids
+    */
+   getOtherPartiesFromConversations: function () {
+     return _.without(_.flatten(_.map(Conversations.find().fetch(), function (conv) {
+       return conv.parties;
+     })), Meteor.userId());
    }
+
  };

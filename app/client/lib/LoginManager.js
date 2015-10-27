@@ -81,7 +81,7 @@ LoginManager = {
        LoginManager.handleError(err);
        return;
      }
-     Router.go('/profile/edit');
+     Router.go('/');
    });
  },
 

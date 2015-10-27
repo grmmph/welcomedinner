@@ -4,6 +4,9 @@
  */
 
 SearchManager = {
+  /**
+   * @return user {Object}
+   */
   getResults: function () {
     var userType = UsersManager.getUserType();
     if (!userType) {
