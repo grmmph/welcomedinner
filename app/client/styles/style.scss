@@ -23,7 +23,11 @@ body {
 .max-width-medium {
   max-width: 670px;
 }
-
+.profile-image {
+  background: $gray-light;
+  @include radius(100%);
+  background-size: cover;
+}
 #header {
   text-transform: capitalize;
   &:not(.absolute-header) {
@@ -116,6 +120,11 @@ body {
 }
 
 .profile-edit-container {
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
   .user-type-btn {
     margin-right: 10px;
     color: $red;
@@ -134,13 +143,12 @@ body {
 
 .results-item {
   // PLACEHOLDER
-  .img {
-    background: gray;
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
+  .profile-image {
+    width: 65px;
+    height: 65px;
   }
   .person-name {
+    margin-top: 0;
     margin-bottom: 5px;
   }
   .person-details {

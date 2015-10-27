@@ -1,7 +1,7 @@
 <template name="profileEditView">
   <div class="profile-edit-container container max-width-medium">
     <h1 class="text-center">About me</h1>
-    <div class="profile-image">{{profile.image}}</div>
+    <div class="profile-image" style="background-image:url('/uploads/{{profile.image}}')"></div>
     {{> upload_bootstrap formData=formData}}
     <div class="row">
       <div class="col-sm-6">

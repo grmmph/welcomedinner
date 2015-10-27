@@ -14,6 +14,8 @@
        return;
      }
 
+     this.insertConversation(Meteor.userId(), receiverId);
+
      return Messages.insert({
        createdAt: new Date(),
        sender: Meteor.userId(),
@@ -22,23 +24,37 @@
      });
    },
 
+   insertConversation: function (sender, receiver) {
+    if (Conversations.find({parties: { $all: [sender,receiver] }}).fetch().length) {
+      return;
+    }
+    Conversations.insert({
+      parties: [sender, receiver],
+      createdAt: new Date()
+    });
+   },
+
+   getLastMessage: function (partyId) {
+     return Messages.findOne({$or: [{ sender: partyId }, { receiver: partyId }] }, {sort: {createdAt: -1}});
+   },
+
+   getOtherPartiesFromConversations: function () {
+     return _.without(_.flatten(_.map(Conversations.find().fetch(), function (conv) {
+       return conv.parties;
+     })), Meteor.userId());
+   },
+
    /**
     * Get user conversations
     * @return conversations {Array}
     */
    getUsersConversations: function () {
-     return _.map(_.uniq(Messages.find().fetch(), function (message) {
-       return (message.receiver && message.reciever !== Meteor.userId()) ||  (message.sender && message.sender !== Meteor.userId());
-     }), function (message) {
-       var conversation = {};
-       if (Meteor.userId() === message.reciever) {
-         conversation.partner = UsersManager.getUserById(message.sender)
-         conversation.lastMessage = Messages.findOne({reciever: message.reciever}, {sort: {createdAt: -1}});
-       } else {
-         conversation.partner = UsersManager.getUserById(message.receiver)
-         conversation.lastMessage = Messages.findOne({sender: message.sender}, {sort: {createdAt: -1}});
-       }
-       return conversation;
+     return _.map(this.getOtherPartiesFromConversations(), function (partyId) {
+       console.log(UsersManager.getUserById(partyId))
+       return {
+         partner: UsersManager.getUserById(partyId),
+         lastMessage: MessagesManager.getLastMessage(partyId)
+       };
      });
    }
  };

@@ -10,5 +10,9 @@ Meteor.publish("usersList", function () {
   });
 });
 
+Meteor.publish("conversations", function (userId) {
+  return Conversations.find({parties: {$in: [userId]}})
+});
+
 Meteor.users._ensureIndex({ location : "2d" });
 Meteor.users._ensureIndex({ location : "2dsphere" });
