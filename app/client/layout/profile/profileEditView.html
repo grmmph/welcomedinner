@@ -1,8 +1,8 @@
 <template name="profileEditView">
   <div class="profile-edit-container container max-width-medium">
     <h1 class="text-center">About me</h1>
-    <div class="profile-image" style="{{#if profile.image}}background-image:url('/uploads/{{profile.image}}'){{/if}}"></div>
-    {{> upload_bootstrap formData=formData}}
+    <div class="profile-image" style="{{#if profile.image}}background-image:url('{{profile.image}}'){{/if}}"></div>
+    <input type="file" name="image" class="myFileInput">
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">

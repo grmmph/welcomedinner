@@ -27,3 +27,6 @@ momentjs:moment
 outatime:geolib
 tomi:upload-server
 tomi:upload-jquery
+cfs:standard-packages
+cfs:gridfs
+cfs:graphicsmagick
