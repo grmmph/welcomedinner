@@ -49,6 +49,7 @@ Template.profileEditView.events({
           } else {
              // handle success depending what you need to do
             var userId = Meteor.userId();
+            console.log(fileObj)
             var imagesURL = {
               "profile.image": "/cfs/files/images/" + fileObj._id
             };
